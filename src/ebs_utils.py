@@ -6,7 +6,7 @@ import configparser
 from typing import List
 import os
 
-_CONFIG_FILE = os.path.join(os.path.dirname(__file__), 'details.conf')
+_CONFIG_FILE = os.path.join(os.path.dirname(__file__), '../details.conf')
 
 class Block_Storage_Handler:
     '''
