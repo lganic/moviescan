@@ -17,6 +17,9 @@ def get_files_by_extension(bucket_name, folder_path, file_extensions):
 
     if not folder_path.endswith('/'):
         folder_path += '/'
+    
+    while folder_path and folder_path[0] == '/':
+        folder_path = folder_path[1:]
 
     paginator = s3_client.get_paginator('list_objects_v2')
     operation_parameters = {
