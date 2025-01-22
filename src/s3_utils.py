@@ -39,3 +39,22 @@ class S3_Wrapper:
                         matching_files.append(key)
 
         return matching_files
+
+    def download_file(self, bucket_name, file_key, download_path):
+        """
+        Downloads a specified file from an S3 bucket to a specific location on disk.
+
+        Args:
+            bucket_name (str): Name of the S3 bucket.
+            file_key (str): Key of the file in the S3 bucket.
+            download_path (str): Local file path to download the file to.
+
+        Returns:
+            None
+        """
+
+        # Ensure the directory exists
+        os.makedirs(os.path.dirname(download_path), exist_ok=True)
+
+        # Download the file
+        self.s3_client.download_file(bucket_name, file_key, download_path)
